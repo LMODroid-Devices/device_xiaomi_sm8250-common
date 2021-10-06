@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2019 The LineageOS Project
+ *               2017-2019,2021 The LineageOS Project
  * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,6 +32,8 @@ import static android.provider.Settings.Secure.DOZE_ALWAYS_ON;
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 
 public final class DozeUtils {
+
+    protected static final String DOZE_ENABLE = "doze_enable";
 
     protected static final String ALWAYS_ON_DISPLAY = "always_on_display";
     protected static final String CATEG_PICKUP_SENSOR = "pickup_sensor";
