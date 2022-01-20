@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2019-2021 The LineageOS Project
+ * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -28,7 +29,7 @@
 using android::base::GetIntProperty;
 
 namespace vendor {
-namespace lineage {
+namespace lmodroid {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
@@ -187,5 +188,5 @@ Return<int32_t> FingerprintInscreen::getSize() {
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
-}  // namespace lineage
+}  // namespace lmodroid
 }  // namespace vendor
