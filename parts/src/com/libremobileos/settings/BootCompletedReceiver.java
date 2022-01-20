@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
  *               2017-2020 The LineageOS Project
+ * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,16 +16,16 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings;
+package com.libremobileos.settings;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.popupcamera.PopupCameraUtils;
-import org.lineageos.settings.thermal.ThermalUtils;
+import com.libremobileos.settings.doze.DozeUtils;
+import com.libremobileos.settings.popupcamera.PopupCameraUtils;
+import com.libremobileos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 

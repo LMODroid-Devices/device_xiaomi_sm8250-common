@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,30 +15,35 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.thermal;
+package com.libremobileos.settings.popupcamera;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.collapsingtoolbar.R;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceFragment;
 
-public class ThermalActivity extends CollapsingToolbarBaseActivity {
+import com.libremobileos.settings.R;
 
-    private static final String TAG_THERMAL = "thermal";
-    private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
+public class PopupCameraSettingsFragment
+        extends PreferenceFragment implements OnPreferenceChangeListener {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction().replace(R.id.content_frame,
-                new ThermalSettingsFragment(), TAG_THERMAL).commit();
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        addPreferencesFromResource(R.xml.popup_settings);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            getActivity().onBackPressed();
             return true;
         }
         return false;

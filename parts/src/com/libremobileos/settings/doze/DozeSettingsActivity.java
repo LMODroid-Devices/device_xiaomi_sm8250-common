@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2015-2016 The CyanogenMod Project
- *               2017 The LineageOS Project
+ *               2017,2021 The LineageOS Project
+ * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,23 +16,22 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.popupcamera;
+package com.libremobileos.settings.doze;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 
-public class PopupCameraSettingsActivity extends PreferenceActivity {
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import com.android.settingslib.collapsingtoolbar.R;
 
-    private static final String TAG_POPUPCAMERA = "popupcamera";
+public class DozeSettingsActivity extends CollapsingToolbarBaseActivity {
+
+    private static final String TAG_DOZE = "doze";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getFragmentManager()
-                .beginTransaction()
-                .replace(android.R.id.content, new PopupCameraSettingsFragment(),
-                        TAG_POPUPCAMERA)
-                .commit();
+        getFragmentManager().beginTransaction().replace(R.id.content_frame,
+                new DozeSettingsFragment(), TAG_DOZE).commit();
     }
 }

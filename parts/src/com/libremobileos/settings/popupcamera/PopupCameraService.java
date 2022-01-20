@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.popupcamera;
+package com.libremobileos.settings.popupcamera;
 
 import android.annotation.NonNull;
 import android.app.AlertDialog;
@@ -39,10 +40,10 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.lineageos.settings.R;
-import org.lineageos.settings.sensors.ProximitySensor;
-import org.lineageos.settings.sensors.SensorsUtils;
-import org.lineageos.settings.utils.FileUtils;
+import com.libremobileos.settings.R;
+import com.libremobileos.settings.sensors.ProximitySensor;
+import com.libremobileos.settings.sensors.SensorsUtils;
+import com.libremobileos.settings.utils.FileUtils;
 
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 import vendor.xiaomi.hardware.motor.V1_0.IMotorCallback;

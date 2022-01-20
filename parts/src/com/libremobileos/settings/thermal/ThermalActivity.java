@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,35 +14,30 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.popupcamera;
+package com.libremobileos.settings.thermal;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.preference.Preference;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragment;
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import com.android.settingslib.collapsingtoolbar.R;
 
-import org.lineageos.settings.R;
+public class ThermalActivity extends CollapsingToolbarBaseActivity {
 
-public class PopupCameraSettingsFragment
-        extends PreferenceFragment implements OnPreferenceChangeListener {
-
-    @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.popup_settings);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+    private static final String TAG_THERMAL = "thermal";
+    private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFragmentManager().beginTransaction().replace(R.id.content_frame,
+                new ThermalSettingsFragment(), TAG_THERMAL).commit();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
+            onBackPressed();
             return true;
         }
         return false;
