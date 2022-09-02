@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2020 The LineageOS Project
- * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.libremobileos.settings.popupcamera;
+package org.lineageos.settings.popupcamera;
 
 public class Constants {
     public static final int CAMERA_EVENT_DELAY_TIME = 100; // ms

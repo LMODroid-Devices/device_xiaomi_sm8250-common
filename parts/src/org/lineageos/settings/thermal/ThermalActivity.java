@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.libremobileos.settings.thermal;
+package org.lineageos.settings.thermal;
 
 import android.os.Bundle;
 import android.view.MenuItem;

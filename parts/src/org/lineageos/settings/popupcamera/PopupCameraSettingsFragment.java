@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2018 The LineageOS Project
- * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.libremobileos.settings.popupcamera;
+package org.lineageos.settings.popupcamera;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -24,7 +23,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 
-import com.libremobileos.settings.R;
+import org.lineageos.settings.R;
 
 public class PopupCameraSettingsFragment
         extends PreferenceFragment implements OnPreferenceChangeListener {

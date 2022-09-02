@@ -1,7 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
  *               2020 The LineageOS Project
- * Copyright (C) 2022 The LibreMobileOS Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.libremobileos.settings.sensors;
+package org.lineageos.settings.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
