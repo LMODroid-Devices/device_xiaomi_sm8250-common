@@ -107,6 +107,9 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/xiaomi/sm8250-common.config
 
+# Lineage Health
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 ifeq ($(TARGET_IS_VAB),true)
@@ -191,7 +194,7 @@ SOONG_CONFIG_XIAOMI_KONA_ROOTDIR_PARTITION_SCHEME := a
 endif
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2023-03-01
+VENDOR_SECURITY_PATCH := 2023-06-01
 
 # Sepolicy
 include device/qcom/sepolicy_vndr-legacy-um/SEPolicy.mk
