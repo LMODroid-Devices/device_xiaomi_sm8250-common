@@ -7,7 +7,6 @@
 COMMON_PATH := device/xiaomi/sm8250-common
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
 
 # A/B
 ifeq ($(TARGET_IS_VAB),true)
@@ -105,7 +104,10 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
-TARGET_KERNEL_CONFIG := vendor/kona-perf_defconfig vendor/xiaomi/sm8250-common.config
+TARGET_KERNEL_CONFIG := \
+    vendor/kona-perf_defconfig \
+    vendor/debugfs.config \
+    vendor/xiaomi/sm8250-common.config
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
