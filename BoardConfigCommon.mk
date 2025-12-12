@@ -63,6 +63,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Display
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x546C00000000
+TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
 TARGET_NO_RAW10_CUSTOM_FORMAT := true
 ifeq ($(TARGET_HAS_UDFPS),true)
 TARGET_USES_FOD_ZPOS := true
@@ -70,14 +71,6 @@ endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
-
-# Fingerprint
-ifeq ($(TARGET_HAS_UDFPS),true)
-TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/xiaomi:libudfps_extension.xiaomi
-endif
-
-# Init
-TARGET_INIT_VENDOR_LIB ?= //$(COMMON_PATH):init_xiaomi_kona
 
 # Kernel
 ifeq ($(PRODUCT_VIRTUAL_AB_OTA),true)
@@ -99,9 +92,6 @@ TARGET_KERNEL_CONFIG := \
     vendor/kona-perf_defconfig \
     vendor/debugfs.config \
     vendor/xiaomi/sm8250-common.config
-
-# Media
-TARGET_USES_ION := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)

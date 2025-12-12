@@ -190,6 +190,8 @@ PRODUCT_COPY_FILES += \
 ifeq ($(TARGET_HAS_UDFPS),true)
 PRODUCT_PACKAGES += \
     libudfpshandler
+
+$(call soong_config_set,surfaceflinger,udfps_lib,//hardware/xiaomi:libudfps_extension.xiaomi)
 endif
 endif
 
@@ -215,6 +217,9 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_kona)
+
 # Input
 PRODUCT_PACKAGES += \
     Xiaomi_Smart_Pen_Keyboard.kl \
@@ -230,6 +235,7 @@ PRODUCT_PACKAGES += \
     uinput-goodix.idc
 
 # Kernel
+PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Lights
@@ -268,12 +274,19 @@ PRODUCT_COPY_FILES += \
 TARGET_SUPPORTS_OMX_SERVICE := false
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lmodroid
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlayCommon \
+    FrameworkResOverlayCommon \
+    LineageDialerOverlayCommon \
+    LineageSDKOverlayCommon \
+    LineageSettingsOverlayCommon \
+    SettingsOverlayCommon \
+    SettingsProviderOverlayCommon \
+    SystemUIOverlayCommon \
+    TelephonyOverlayCommon \
+    WifiResourcesOverlayCommon
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(LOCAL_PATH)/overlay/packages/apps/CarrierConfig
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -297,6 +310,7 @@ PRODUCT_COPY_FILES += \
 
 # QTI fwk-detect
 PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti.vendor # Needed by CNE app
 
 # Rootdir
@@ -381,7 +395,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
-    WifiResCommon \
+    NcmTetheringOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
 
